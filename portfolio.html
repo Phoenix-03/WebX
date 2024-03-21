@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<body>
+    <h1>Portfolio</h1>
+    <form action="/portfolio" method="get">
+        <label for="category">Filter by Category:</label>
+        <select id="category" name="category">
+            <option value="">All</option>
+            <option value="Personal Details">Personal Details</option>
+            <option value="Education">Education</option>
+            <option value="Skills">Skills</option>
+            
+        </select>
+        <input type="submit" value="Filter">
+    </form>
+    
+    <ul>
+        {% for project in portfolio_data %}
+        <li>
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
